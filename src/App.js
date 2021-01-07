@@ -16,19 +16,34 @@ const particlesOptions = {
     }
   }
 }
-function App() {
-  return (
-    <div className="App">
-      <Particles className='particles'
-              params={particlesOptions}
-            />
-      <Navigation />
-      <Logo/>
-      <Rank/>
-      <ImageLinkFrom/>
-      {/* {<FaceRecognition/>} */}
-    </div>
-  );
+
+class App extends Component{
+  constructor(){
+    super();
+    this.state = {
+      input : '',
+    }
+  }
+
+  onInputChange = (event) =>{
+    console.log(event.target.value);
+  }
+
+  render(){
+    return (
+      <div className="App">
+        <Particles className='particles'
+                params={particlesOptions}
+              />
+        <Navigation />
+        <Logo/>
+        <Rank/>
+        <ImageLinkFrom onInputChange={this.onInputChange}/>
+        {/* {<FaceRecognition/>} */}
+      </div>
+    );
+  }
 }
+
 
 export default App;
